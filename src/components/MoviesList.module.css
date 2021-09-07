@@ -1,0 +1,33 @@
+.MoviesPage {
+  text-align: center;
+}
+.FetchMovies {
+  cursor: pointer;
+  padding: 1rem 0;
+  font-weight: bolder;
+  font-size: large;
+}
+.FetchMovies:hover {
+  background-color: rgb(212, 207, 192);
+}
+.MoviesPageBackGround {
+  background-color: brown;
+  position: fixed;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.MoviesPage section {
+  background-color: cornsilk;
+  border: 2px solid brown;
+  border-radius: 10px;
+  width: 60%;
+  margin: auto;
+  margin-top: 2rem;
+}
+.MoviesList ul {
+  list-style-type: none;
+  padding: 0;
+}
