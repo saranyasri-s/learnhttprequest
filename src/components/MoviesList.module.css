@@ -2,12 +2,14 @@
   text-align: center;
 }
 .FetchMovies {
-  cursor: pointer;
-  padding: 1rem 0;
-  font-weight: bolder;
-  font-size: large;
+  padding: 0.5rem;
 }
-.FetchMovies:hover {
+.FetchMovies button {
+  cursor: pointer;
+  padding: 0.3rem;
+  font-weight: bolder;
+}
+.FetchMovies button:hover {
   background-color: rgb(212, 207, 192);
 }
 .MoviesPageBackGround {
