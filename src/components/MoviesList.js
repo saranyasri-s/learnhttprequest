@@ -26,7 +26,7 @@ function MoviesList() {
     setErrorMessage(null);
     setIsLoading(true);
     try {
-      const response = await fetch("https://swapi.dev/qapi/films");
+      const response = await fetch("https://swapi.dev/api/films");
       const data = await response.json();
       if (!response.ok) {
         throw new Error("something went wrong!");
