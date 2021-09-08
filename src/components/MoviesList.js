@@ -6,19 +6,22 @@ const DUMMY_MOVIES = [
 ];
 function MoviesList() {
   const [moviesList, setMoviesList] = useState([]);
-  const fetchMoviesListHandler = () => {
-    fetch("https://swapi.dev/api/films/")
-      .then((response) => {
-        console.log(response);
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data.results);
-        setMoviesList(data.results);
-      })
-      .catch(() => {
-        console.log("error");
-      });
+  const fetchMoviesListHandler = async () => {
+    // fetch("https://swapi.dev/api/films/")
+    //   .then((response) => {
+    //     console.log(response);
+    //     return response.json();
+    //   })
+    //   .then((data) => {
+    //     console.log(data.results);
+    //     setMoviesList(data.results);
+    //   })
+    //   .catch(() => {
+    //     console.log("error");
+    //   });
+    const response = await fetch("https://swapi.dev/api/films");
+    const data = await response.json();
+    setMoviesList(data.results);
   };
   return (
     <div className={classes.MoviesPage}>
