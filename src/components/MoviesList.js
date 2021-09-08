@@ -6,7 +6,10 @@ const DUMMY_MOVIES = [
 ];
 function MoviesList() {
   const [moviesList, setMoviesList] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
   const fetchMoviesListHandler = async () => {
+    setIsLoading(true);
     // fetch("https://swapi.dev/api/films/")
     //   .then((response) => {
     //     console.log(response);
@@ -15,13 +18,26 @@ function MoviesList() {
     //   .then((data) => {
     //     console.log(data.results);
     //     setMoviesList(data.results);
+    //     setIsLoading(false);
     //   })
-    //   .catch(() => {
-    //     console.log("error");
+    //   .catch((error) => {
+    //     console.log(error);
     //   });
-    const response = await fetch("https://swapi.dev/api/films");
-    const data = await response.json();
-    setMoviesList(data.results);
+    setErrorMessage(null);
+    setIsLoading(true);
+    try {
+      const response = await fetch("https://swapi.dev/qapi/films");
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error("something went wrong!");
+      }
+      setMoviesList(data.results);
+    } catch (error) {
+      console.log(error);
+      console.log(error.message);
+    }
+    setIsLoading(false);
+    setErrorMessage("something went wrong!");
   };
   return (
     <div className={classes.MoviesPage}>
@@ -30,6 +46,8 @@ function MoviesList() {
         <button onClick={fetchMoviesListHandler}>FETCH MOVIES</button>
       </section>
       <section className={classes.MoviesList}>
+        {isLoading && moviesList.length < 1 && <p>Loading Movies...</p>}
+        {errorMessage && <p>something went wrong</p>}
         <ul>
           {moviesList.map((movie) => (
             <Movies
