@@ -1,19 +1,41 @@
 .MoviesPage {
   text-align: center;
 }
+.newMovie {
+  padding: 1rem;
+  text-align: start;
+}
+.newMovie div p {
+  font-size: large;
+  text-transform: capitalize;
+  font-weight: bolder;
+}
+.newMovie div input {
+  margin-bottom: 0.5rem;
+  padding: 0.3rem;
+  width: 100%;
+}
+.buttonContainer {
+  text-align: center;
+}
+.button {
+  padding: 0.5rem 0.5rem;
+  text-align: center;
+  background-color: darkblue;
+  color: white;
+  border-radius: 10px;
+  font-weight: bolder;
+  border: none;
+}
+.button:hover {
+  background-color: #3636d5;
+}
 .FetchMovies {
   padding: 0.5rem;
 }
-.FetchMovies button {
-  cursor: pointer;
-  padding: 0.3rem;
-  font-weight: bolder;
-}
-.FetchMovies button:hover {
-  background-color: rgb(212, 207, 192);
-}
+
 .MoviesPageBackGround {
-  background-color: brown;
+  background-color: #370808;
   position: fixed;
   z-index: -1;
   height: 100%;
